@@ -4,7 +4,8 @@
 	export async function preload() {
 		try {
 			const usStats = await requests.usStats()
-			return { usStats }
+			const usHistoricStats = await requests.usHistoricStats()
+			return { usStats, usHistoricStats }
 		} catch (error) {
 			this.error(
 				500,
@@ -22,6 +23,8 @@
 
 	export let usStats
 	console.log(usStats, 'usStats')
+	export let usHistoricStats
+	console.log(usHistoricStats, 'usHistoricStats')
 </script>
 
 <svelte:head>
