@@ -6,7 +6,11 @@
 			const usStats = await requests.usStats()
 			return { usStats }
 		} catch (error) {
-			
+			this.error(
+				500,
+				'There was an error in calling the api, please try again in 5 minutes.'
+			)
+			return
 		}
 	}
 </script>
@@ -30,7 +34,7 @@
 	</div>
 </div>
 
-<CovidStat />
+<CovidStat {...usStats} />
 
 <CovidChart />
 
