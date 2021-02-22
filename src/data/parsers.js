@@ -26,7 +26,17 @@ function stateStats(state, data) {
   return parseStats(stateStatRaw)
 }
 
+function usHistoricStats(data) {
+
+}
+
+function stateHistoricStats() {
+
+}
+
 export default {
   usStats,
-  stateStats
+  stateStats,
+  usHistoricStats,
+  stateHistoricStats
 }
