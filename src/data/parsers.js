@@ -34,7 +34,7 @@ function stateStats(state, data) {
  * @param {*} color rgb格式颜色，用于chart
  */
 function parseChart(historicData, key, label, color) {
-  const chartData = historicData.map(data => {
+  const chartData = historicData.map((data) => {
     return {
       x: moment(data.date, 'YYYYMMDD'), //* x轴为日期
       y: data[key] || 0 //* y轴为值
@@ -53,7 +53,7 @@ function parseHistoric(historicData) {
   return [
     {
       label: 'Cases',
-      key: 'possitive',
+      key: 'positive',
       color: 'rgb(100, 0, 200)'
     },
     {
@@ -77,11 +77,11 @@ function parseHistoric(historicData) {
       color: 'rgb(255, 99, 132)'
     },
   ].reduce((prev, next) => {
-    if (historicData.filter((d) => d[next.key] !== null).length > 4) {
+    if (historicData.filter((d) => d[next.key]).length > 4) {
       prev.push(parseChart(historicData, next.key, next.label, next.color))
-      //! 必须return才可以返回reduce的结果
-      return prev
     }
+    //! 必须return才可以返回reduce的结果
+    return prev
   }, [])
 }
 
