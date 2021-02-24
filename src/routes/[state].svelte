@@ -32,7 +32,6 @@
 
   export let state
   export let stateStats
-  console.log(stateStats)
   export let stateHistoricStats
 </script>
 

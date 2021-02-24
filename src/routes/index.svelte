@@ -23,11 +23,8 @@
 	import TableContainer from '../components/TableContainer.svelte'
 
 	export let usStats
-	console.log(usStats, 'usStats')
 	export let usHistoricStats
-	console.log(usHistoricStats, 'usHistoricStats')
 	export let statesTableData
-	console.log(statesTableData, 'statesTableData')
 </script>
 
 <svelte:head>
