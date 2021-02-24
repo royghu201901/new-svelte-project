@@ -101,9 +101,9 @@ function statesTableData(stateData) {
   return stateData.map(data => {
     const {name} = stateNames.find(d => d.abbreviation === data.state)
     return {
-      cases: format.number(data.positive),
-      deaths: format.number(data.death),
-      tested: format.number(data.totalTestResults),
+      cases: format.tableNumber(data.positive),
+      deaths: format.tableNumber(data.death),
+      tested: format.tableNumber(data.totalTestResults),
       state: data.state,
       fullStateName: name
     }

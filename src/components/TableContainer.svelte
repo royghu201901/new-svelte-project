@@ -17,7 +17,7 @@
 
     if (sortBy !== 'name') {
       return filteredStates.sort((a, b) => {
-        return +b[sortBy].replace(',', '') - +a[sortBy].replace(',', '') //* 用''替换逗号，并用+转换成数字，然后从大到小排序
+        return +b[sortBy].replace(/,/g, '') - +a[sortBy].replace(/,/g, '') //* 用''替换逗号，并用+转换成数字，然后从大到小排序
       })
     }
     return filteredStates  //! 一定要记得return
