@@ -39,6 +39,6 @@
 
 <CovidStat {...usStats} />
 
-<CovidChart historicData={usHistoricStats} title="US Covid-19" />
+<CovidChart historicData={usHistoricStats} title="Covid-19 US" />
 
 <TableContainer />

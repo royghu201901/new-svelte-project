@@ -8,9 +8,14 @@
       this.error(404, 'State Not Found')
       return
     }
+
+    //* 用全名代替缩写
+    const fullStateName = stateNames.find(s => s.abbreviation === state).name
+    
     try {
       const stateStats = await requests.stateStats(state)
-      return { state, stateStats }
+      const stateHistoricStats = await requests.stateHistoricStats(state)
+      return { state: fullStateName, stateStats, stateHistoricStats }
     } catch (error) {
       this.error(
         500,
@@ -28,6 +33,7 @@
   export let state
   export let stateStats
   console.log(stateStats)
+  export let stateHistoricStats
 </script>
 
 <svelte:head>
@@ -42,4 +48,4 @@
 
 <CovidStat {...stateStats} />
 
-<CovidChart />
+<CovidChart historicData={stateHistoricStats} title="Covid-19 {state}" />

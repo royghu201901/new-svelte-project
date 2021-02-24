@@ -89,8 +89,11 @@ function usHistoricStats(historicData) {
   return parseHistoric(historicData)
 }
 
-function stateHistoricStats(historicData) {
-
+function stateHistoricStats(state, historicData) {
+  const stateHistoricData = historicData.filter(
+    (d) => d.state === state
+  )
+  return parseHistoric(stateHistoricData)
 }
 
 export default {
