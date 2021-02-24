@@ -1,5 +1,6 @@
 import format from './format'
 import moment from 'moment'
+import stateNames from './stateNames'
 
 function parseStats(rawStats) {
   return {
@@ -96,9 +97,23 @@ function stateHistoricStats(state, historicData) {
   return parseHistoric(stateHistoricData)
 }
 
+function statesTableData(stateData) {
+  return stateData.map(data => {
+    const {name} = stateNames.find(d => d.abbreviation === data.state)
+    return {
+      cases: format.number(data.positive),
+      deaths: format.number(data.death),
+      tested: format.number(data.totalTestResults),
+      state: data.state,
+      fullStateName: name
+    }
+  })
+}
+
 export default {
   usStats,
   stateStats,
   usHistoricStats,
-  stateHistoricStats
+  stateHistoricStats,
+  statesTableData
 }
