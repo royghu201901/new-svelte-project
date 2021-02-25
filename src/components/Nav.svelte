@@ -16,7 +16,11 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
+    <a
+			class="navbar-item" 
+			rel="prefetch"
+			href="/"
+		>
       <img src="logo.png" alt="logo" width="30" height="30">
     </a>
 
@@ -39,7 +43,8 @@
 		class:is-active={isOpen}
 	>
     <div class="navbar-start">
-      <a 
+      <a
+				rel="prefetch"
 				class="navbar-item"
 				class:is-active={segment === undefined}
 				href="/"
@@ -48,6 +53,7 @@
       </a>
 
       <a
+				rel="prefetch"
 				class="navbar-item"
 				class:is-active={segment === 'about'}
 				href="/about"
